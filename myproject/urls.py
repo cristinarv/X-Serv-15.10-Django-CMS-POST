@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from cms_users_put import views
+from cms_post import views
 from django.contrib.auth.views import logout, login
 
 urlpatterns = patterns('',
@@ -12,5 +12,5 @@ urlpatterns = patterns('',
     url(r'^$', views.inicio_pag, name="Listado de las paginas"),
     url(r'^logout', logout,  {'next_page': '/'}),
     url(r'^login', login, {'template_name': 'registration/login.html'}),
-    url(r'(.+)', views.pag),
+    url(r'^edit/(.+)', views.edit_pag, name="Editar una página"),
 )
